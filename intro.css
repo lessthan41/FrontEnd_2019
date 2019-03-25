@@ -27,9 +27,9 @@ ul {
   border-color: #375454;
   border-width: 1px;
   border-radius: 50%;
-  background-image: url(./image/me.jpg);
   background-size: cover;
   box-shadow: 5px 5px 20px #000000c7;
+  background-image: url(./image/me.jpg);
 }
 
 #line {
