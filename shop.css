@@ -1,0 +1,23 @@
+.container{
+  height: fit-content;
+}
+.cardContainer{
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+.navbar{
+  background-color: #FFFFFF;
+  border-color: #E7E7E7;
+}
+
+.product-img{
+  height: 45vh;
+  background-position: center;
+  background-size: cover;
+}
+
+@media screen and (max-width: 800px){
+  .card-deck{
+    display: block;
+  }
+}
