@@ -1,0 +1,88 @@
+body {
+    background-color: #f5f5f5;
+}
+
+/* Scroll bar */
+::-webkit-scrollbar {
+width: 7px;
+}
+::-webkit-scrollbar-track {
+-webkit-border-radius: 10px;
+border-radius: 10px;
+margin:5px 0 5px 0;
+}
+::-webkit-scrollbar-thumb {
+-webkit-border-radius: 4px;
+border-radius: 4px;
+background: #afafaf;
+}
+
+/* Nav Bar */
+.navbar-brand{
+  font-size: 23px;
+}
+.navbar{
+  background-color: #FFFFFF;
+  border-color: #E7E7E7;
+}
+#query {
+  font-size: 19px;
+  margin-left: 15px;
+}
+
+.container {
+  padding: 10px;
+}
+#product-list {
+  margin-top: 20px;
+  width: unset;
+  margin: 0px auto;
+}
+.name {
+    font-size: 14px;
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", sans-serif;
+    color: #212121;
+    max-width: calc(236px - 3rem);
+    margin-top: 0px 20px 3px 30px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.price {
+    color: #ff6709;
+    font-family: "Microsoft Yahei", "Hiragino Sans GB", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.image {
+    width: 160px;
+    height: 160px;
+    margin-top: 0px;
+    margin-bottom: 22px;
+    margin-left: 37px;
+    margin-right: 37px;
+    background-position: center;
+    background-size: cover;
+}
+
+.item {
+    height: 325px;
+    transition: 0.2s;
+    position: relative;
+    border: 1px #cccccc solid;
+    text-align: center;
+    background-color: white;
+    background-clip: border-box;
+    background-origin: padding-box;
+    margin: 0px 0px 14px 20px;
+    padding: 34px 0px 20px 0px;
+}
+
+.item:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, .1);
+    /* transform: translate3d(-2px, -2px, 0px); */
+    transition-timing-function: ease-in-out;
+}
