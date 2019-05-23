@@ -12,7 +12,6 @@ $(document).ready(function() {
         var start = (page - 1) * pageCount
         var end = start + pageCount - 1 >= items.length-1 ? items.length-1 : start + pageCount - 1
         $('#product-list').empty();
-
         for (var i = start; i <= end; i++) {
             newItem(items[i])
         }
@@ -21,7 +20,7 @@ $(document).ready(function() {
     var newItem = (item) => {
         $img = $('<div>').attr('class', 'image').css('background-image', 'url('+item.image +')');
         $h3 = $('<h6>').attr('class', 'name').text(item.name)
-        $p = $('<p>').attr('class', 'price').text('NT$ ' + item.price)
+        $p = $('<a>').attr('class', 'price').text('NT$ ' + item.price)
 
         $item = $('<div>').attr('class', 'item').attr('class', 'card-body').append($h3).append($p)
         $col = $('<div>').attr('class', 'col-*').attr('class', 'card').attr('class', 'item').append($img).append($item)
