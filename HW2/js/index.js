@@ -2,7 +2,6 @@
 $(document).ready(function() {
 
     // 清空 product-list
-    // $('#product-list').empty();
     $('#page').hide()
 
     var items = null
@@ -28,6 +27,8 @@ $(document).ready(function() {
         $('#product-list').append($col)
     }
 
+
+
     var newPage = (n) => {
         var pageNum = n / 20
         var nowPage = 1
@@ -41,7 +42,8 @@ $(document).ready(function() {
           $.each($(this).parent().parent().children(), function() {
             $(this).attr('class', 'page-item');
           });
-          $( "li" ).eq( nowPage+1 ).attr('class', 'page-item active');
+          $( "li" ).eq( nowPage+2 ).attr('class', 'page-item active');
+
           showItems(nowPage);
           if(nowPage == 1){ $lli.addClass('disabled') }
         });
@@ -59,7 +61,7 @@ $(document).ready(function() {
                 $.each($(this).parent().parent().children(), function() {
                   $(this).attr('class', 'page-item');
                 });
-                $(this).parent().attr('class', 'page-item active')
+                $(this).parent().attr('class', 'page-item active');
                 showItems(Number(i))
                 if(nowPage == 1){ $lli.addClass('disabled') }
                 if(nowPage == Math.floor(pageNum)){ $rli.addClass('disabled') }
@@ -76,7 +78,7 @@ $(document).ready(function() {
           $.each($(this).parent().parent().children(), function() {
             $(this).attr('class', 'page-item');
           });
-          $( "li" ).eq( nowPage+1 ).attr('class', 'page-item active');
+          $( "li" ).eq( nowPage+2 ).attr('class', 'page-item active');
           showItems(nowPage);
           if(nowPage == Math.floor(pageNum)){ $rli.addClass('disabled') }
         });
@@ -85,6 +87,8 @@ $(document).ready(function() {
     }
 
     $('#query').on('click', function() {
+        $('#insert-list').css('display', 'none');
+        // $('#product-list').css('display', 'unset');
         $.get('https://js.kchen.club/B06208030/query', function(response) {
             if (response) {
                 // 伺服器有回傳資料
@@ -115,6 +119,48 @@ $(document).ready(function() {
 
             console.log(response)
         }, "json")
+    });
+
+    $('#searchBtn').on('click', function() {
+      $('#product-list').empty();
+      $('#page-number').empty();
+      $('#insert-list').css('display', 'none');
+
+      $.get('https://js.kchen.club/B06208030/query', function(response) {
+          if (response) {
+              // 伺服器有回傳資料
+              if (response.result) {
+                  $('#product-list').empty();
+                  // 資料庫有回傳資料
+                  items = response.items
+                  console.log(items);
+                  var items2 = new Array();
+                  var keyword = $('#searchInput').val();
+                  for(var i=0; i<items.length; i++){
+                    if(items[i]['name'].indexOf(keyword) != -1){ // 物品名裡有查詢的關鍵字
+                      items2.push(items[i]);
+                    }
+                  }
+
+                  for (var i = 0; i < items2.length; i++) {
+                    newItem(items2[i]);
+                  }
+
+
+
+              } else {
+                  $('#message').text('查無相關資料')
+                  $('#dialog').modal('show')
+              }
+          } else {
+              $('#message').text('伺服器出錯')
+              $('#dialog').modal('show')
+          }
+
+          console.log(response)
+      }, "json")
+
+
     })
 
 })

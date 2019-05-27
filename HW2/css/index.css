@@ -1,5 +1,6 @@
 body {
     background-color: #f5f5f5;
+    font-family: '微軟正黑體'
 }
 
 /* Scroll bar */
@@ -25,19 +26,34 @@ background: #afafaf;
   background-color: #FFFFFF;
   border-color: #E7E7E7;
 }
-#query {
+#query, #insert {
   font-size: 19px;
   margin-left: 15px;
 }
 
+/* Content */
 .container {
   padding: 10px;
 }
-#product-list {
+.active a {
+  background-color: #3a424a;
+  border-color: #323b45;
+}
+#product-list, #insert-list {
   margin-top: 20px;
   width: unset;
   display: flex;
   justify-content: center;
+}
+#insert-list, #page {
+  display: none;
+}
+#insertDiv {
+  margin-top: 20px;
+  margin-right: 20px;
+}
+#insertBtn {
+  float: right;
 }
 .name {
     font-size: 14px;
